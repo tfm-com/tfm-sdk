@@ -1,0 +1,11 @@
+{
+  "entryPoints": ["./src/index.ts"],
+  "out": "docs",
+  "excludeExternals": true,
+  "exclude": "**/*+(.spec|.e2e).ts",
+  "theme": "default",
+  "name": "TFM Sdk",
+  "excludePrivate": true,
+  "excludeProtected": true,
+  "hideGenerator": true
+}
