@@ -1,6 +1,6 @@
 {
-  "name": "package-based",
-  "version": "0.0.0",
+  "name": "@0x/tfm",
+  "version": "0.0.1",
   "license": "MIT",
   "scripts": {
     "prepare": "husky install",
