@@ -1,8 +1,7 @@
 {
-  "name": "@0xtfm/examples",
+  "name": "@0xtfm/examples-sdk",
   "version": "0.0.1",
   "main": "dist/index.js",
-  "devDependencies": {},
   "scripts": {
     "build": "tsc src/*.ts --outDir dist",
     "examples:basic": "node dist/basic.js",
@@ -11,5 +10,8 @@
     "examples:ibc-chain": "node dist/ibc.js",
     "examples:ibc-transfer": "node dist/ibc-transfer.js",
     "examples:ibc-swap": "node dist/ibc-swap.js"
+  },
+  "dependencies": {
+    "@0xtfm/sdk": "^0.2.1"
   }
 }
