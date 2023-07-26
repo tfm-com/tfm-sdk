@@ -38,18 +38,18 @@ Usage
 Before running the examples, build them if any changes are made to ensure they are up-to-date:
 
 ```bash
-npx nx build @0xtfm/examples
+npx nx build @0xtfm/examples-sdk
 ```
 
 Now, you can run each example using the provided commands:
 
 ```bash
-npx nx examples:basic
-npx nx examples:price
-npx nx examples:dex
-npx nx examples:ibc-chain
-npx nx examples:ibc-transfer
-npx nx examples:ibc-swap
+npx nx examples:basic @0xtfm/examples-sdk
+npx nx examples:price @0xtfm/examples-sdk
+npx nx examples:dex @0xtfm/examples-sdk
+npx nx examples:ibc-chain @0xtfm/examples-sdk
+npx nx examples:ibc-transfer @0xtfm/examples-sdk
+npx nx examples:ibc-swap @0xtfm/examples-sdk
 ```
 
 If you make any changes to the examples, rebuild them before running the commands again.
