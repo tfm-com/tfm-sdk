@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-cd packages/sdk
+cd packages/sdk.ts
 npm run format
 npm run lint

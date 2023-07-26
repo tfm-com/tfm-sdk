@@ -24,6 +24,6 @@
     "examples/*"
   ],
   "dependencies": {
-    "@0xtfm/sdk": "file:packages/sdk"
+    "@0xtfm/sdk": "file:packages/sdk.py"
   }
 }
