@@ -1,5 +1,5 @@
 {
-  "name": "@0x/tfm",
+  "name": "@0xtfm/sdk-monorepo",
   "version": "0.0.1",
   "license": "MIT",
   "scripts": {
