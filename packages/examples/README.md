@@ -16,7 +16,7 @@ To use this package, follow the steps below:
    Clone the TFM SDK repository to your local machine:
 
    ```bash
-   git clone <https://github.com/your-scope/tfm-sdk.git>
+   git clone https://github.com/tfm-com/tfm-sdk.git
    ```
 
 2. Install the Package
