@@ -57,7 +57,7 @@ export class IbcChainProcessor {
     denom,
   }: GetChainTokenDto): Promise<IbcTokenDto> {
     denom = encodeURIComponent(denom);
-    const url = `/ibc/chain/${chainId}/token/${denom}}`;
+    const url = `/ibc/chain/${chainId}/token/${denom}`;
 
     return await this.api.makeGetRequest<IbcTokenDto>(url);
   }

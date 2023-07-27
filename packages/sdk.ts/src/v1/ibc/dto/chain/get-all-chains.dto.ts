@@ -1,5 +1,5 @@
 import { NetworkType } from "../../types";
 export interface GetAllChainsDto {
-  isTrading?: string;
+  isTrading?: boolean;
   networkType?: NetworkType;
 }

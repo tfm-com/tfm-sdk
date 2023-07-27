@@ -1,6 +1,6 @@
 import { TokenType } from "../../types";
 
 export interface GetAllChainTokensDto {
-  isTrading?: string;
+  isTrading?: boolean;
   tokenType?: TokenType;
 }
