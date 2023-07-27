@@ -85,13 +85,17 @@ describe("Api", () => {
         key2: "value2",
       };
 
+      const message = "Request failed with status code 404";
       const apiErrorResponse: TFMApiErrorResponse = {
         problem: "CLIENT_ERROR",
         originalError: {
           name: "Error",
-          message: "Request failed with status code 404",
+          message: message,
           isAxiosError: true,
           toJSON: jest.fn(),
+        },
+        data: {
+          error: message,
         },
         ok: false,
       };

@@ -43,8 +43,8 @@ export class Api {
 
     let message = "Unable to complete the request.";
 
-    const error: TFMApiErrorResponseType = resp.data as TFMApiErrorResponseType;
-    message = error.error?.message || message;
+    const data: TFMApiErrorResponseType = resp.data as TFMApiErrorResponseType;
+    message = data?.error?.message || message;
 
     return Promise.reject(
       new TFMApiError({
