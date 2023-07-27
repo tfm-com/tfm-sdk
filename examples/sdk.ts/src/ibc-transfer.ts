@@ -14,7 +14,7 @@ async function exec() {
     sourceDenom: "uluna",
     destinationDenom:
       "ibc/785AFEC6B3741100D15E7AF01374E3C4C36F24888E96479B1C33F5C71F364EF9",
-    amount: 1000,
+    amount: "1000",
   });
   console.log("ibc transfer route from terra2 to osmosis for transferring luna", 
     ibcTransferRouteTerrToOsmsis);
@@ -27,7 +27,7 @@ async function exec() {
     sourceDenom: "uluna",
     destinationDenom:
       "ibc/785AFEC6B3741100D15E7AF01374E3C4C36F24888E96479B1C33F5C71F364EF9",
-    amount: 1000,
+    amount: "1000",
   });
   console.log(
     "ibc transfer msg from terra2 to osmosis for transferring luna",
@@ -42,7 +42,7 @@ async function exec() {
       sourceDenom: "uluna",
       destinationDenom:
         "ibc/785AFEC6B3741100D15E7AF01374E3C4C36F24888E96479B1C33F5C71F364EF9",
-      amount: 1000,
+      amount: "1000",
     });
   console.log("ibc transfer return route msg together", ibcTransferMsgAndRouteTerraToOsmsis);
 }

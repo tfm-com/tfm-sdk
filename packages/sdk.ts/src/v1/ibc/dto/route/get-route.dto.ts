@@ -5,7 +5,7 @@ export interface GetCommonRouteDto {
   destinationChainId: string;
   sourceDenom: string;
   destinationDenom: string;
-  amount: number;
+  amount: string;
 }
 
 export type GetTransferRouteDto = GetCommonRouteDto;

@@ -35,7 +35,7 @@ describe("IbcTransferProcessor", () => {
       destinationChainId: "chain2",
       sourceDenom: "token1",
       destinationDenom: "token2",
-      amount: 100,
+      amount: "100",
     });
 
     expect(validateSourceAndDestinationChain).toHaveBeenCalledWith(
@@ -65,7 +65,7 @@ describe("IbcTransferProcessor", () => {
       destinationChainId: "chain2",
       sourceDenom: "token1",
       destinationDenom: "token2",
-      amount: 100,
+      amount: "100",
     });
 
     expect(validateSourceAndDestinationChain).toHaveBeenCalledWith(
@@ -95,7 +95,7 @@ describe("IbcTransferProcessor", () => {
       destinationChainId: "chain2",
       sourceDenom: "token1",
       destinationDenom: "token2",
-      amount: 100,
+      amount: "100",
       pfmEnabled: true,
     });
 

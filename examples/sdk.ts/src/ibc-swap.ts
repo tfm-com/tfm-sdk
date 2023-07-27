@@ -13,7 +13,7 @@ async function exec() {
     destinationChainId: "osmosis-1",
     sourceDenom: "uluna",
     destinationDenom: "uosmo",
-    amount: 1000,
+    amount: "1000",
     swapMode: SwapMode.Turbo,
   });
   console.log(
@@ -28,7 +28,7 @@ async function exec() {
     destinationChainId: "osmosis-1",
     sourceDenom: "uluna",
     destinationDenom: "uosmo",
-    amount: 1000,
+    amount: "1000",
     swapMode: SwapMode.Turbo,
   });
   console.log(
@@ -43,7 +43,7 @@ async function exec() {
       destinationChainId: "osmosis-1",
       sourceDenom: "uluna",
       destinationDenom: "uosmo",
-      amount: 1000,
+      amount: "1000",
       swapMode: SwapMode.Turbo,
     });
   console.log(
@@ -62,7 +62,7 @@ async function exec() {
       destinationChainId: "osmosis-1",
       sourceDenom: "uluna",
       destinationDenom: "uosmo",
-      amount: 1000,
+      amount: "1000",
       swapMode: SwapMode.Saving,
     });
   console.log(

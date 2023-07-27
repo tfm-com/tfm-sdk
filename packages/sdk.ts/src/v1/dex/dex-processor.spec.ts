@@ -35,7 +35,7 @@ describe("DexProcessor", () => {
         chainId: "chain1",
         sourceDenom: "usdt",
         destinationDenom: "busd",
-        amount: 100,
+        amount: "100",
       };
 
       // Call the getRoute method
@@ -74,7 +74,7 @@ describe("DexProcessor", () => {
         chainId: "chain1",
         sourceDenom: "usdt",
         destinationDenom: "busd",
-        amount: 100,
+        amount: "100",
       };
 
       // Expect the getRoute method to throw a TFMApiError with the correct message
@@ -100,7 +100,7 @@ describe("DexProcessor", () => {
         chainId: "chain1",
         sourceDenom: "usdt",
         destinationDenom: "busd",
-        amount: 100,
+        amount: "100",
         slippage: 0.5,
       };
 
@@ -136,7 +136,7 @@ describe("DexProcessor", () => {
         chainId: "chain1",
         sourceDenom: "usdt",
         destinationDenom: "busd",
-        amount: 100,
+        amount: "100",
         slippage: 0.5,
       };
 

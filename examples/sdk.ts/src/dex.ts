@@ -12,7 +12,7 @@ async function exec() {
     sourceDenom: "uluna",
     destinationDenom:
       "terra1nsuqsk6kh58ulczatwev87ttq2z6r3pusulg9r24mfj2fvtzd4uq3exn26",
-    amount: 1000,
+    amount: "1000",
   });
   console.log("-----------------------------------");
   console.log('Route to swap Luna to Astro', swapRouteFromLunaToAstro);
@@ -23,7 +23,7 @@ async function exec() {
     sourceDenom: "uluna",
     destinationDenom:
       "terra1nsuqsk6kh58ulczatwev87ttq2z6r3pusulg9r24mfj2fvtzd4uq3exn26",
-    amount: 1000,
+    amount: "1000",
   });
   console.log("-----------------------------------");
   console.log("Message to swap Luna to Astro", JSON.parse(JSON.stringify(swapMsgLunaToAstro)));

@@ -35,7 +35,7 @@ describe("IbcSwapProcessor", () => {
       destinationChainId: "chain2",
       sourceDenom: "token1",
       destinationDenom: "token2",
-      amount: 100,
+      amount: "100",
       swapMode: SwapMode.Turbo,
     });
 
@@ -62,7 +62,7 @@ describe("IbcSwapProcessor", () => {
       destinationChainId: "chain2",
       sourceDenom: "token1",
       destinationDenom: "token2",
-      amount: 100,
+      amount: "100",
       swapMode: SwapMode.Turbo,
       pfmEnabled: true,
       slippage: 0.01,
@@ -91,7 +91,7 @@ describe("IbcSwapProcessor", () => {
       destinationChainId: "chain2",
       sourceDenom: "token1",
       destinationDenom: "token2",
-      amount: 100,
+      amount: "100",
       swapMode: SwapMode.Turbo,
       slippage: 0.01,
       pfmEnabled: true,
