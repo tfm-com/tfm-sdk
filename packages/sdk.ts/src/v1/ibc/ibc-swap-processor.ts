@@ -1,6 +1,5 @@
 /* eslint-disable complexity */
 import { Api } from "../../api";
-import { TFMError } from "../../errors";
 import { RouteMsgCombinedSwapDto } from "./dto/route-msg-combined/route-msg-combined-swap.dto";
 import { SwapMsgDto } from "./dto/msg/msg-swap.dto";
 import { GetSwapRouteDto } from "./dto/route/get-route.dto";
@@ -8,6 +7,10 @@ import { SwapRouteDto } from "./dto/route/route.dto";
 import { GetMsgSwapDto } from "./dto/msg/get-msg.dto";
 import { GetSwapRouteMsgCombinedDto } from "./dto/route-msg-combined/get-route-msg-combined.dto";
 import { SwapMode } from "./enums";
+import {
+  validateSourceAndDestinationChain,
+  validateSourceAndDestinationDenom,
+} from "./validation";
 
 export class IbcSwapProcessor {
   constructor(private readonly api: Api) {}
@@ -20,8 +23,8 @@ export class IbcSwapProcessor {
     amount,
     swapMode = SwapMode.Turbo,
   }: GetSwapRouteDto): Promise<SwapRouteDto> {
-    this.validateSourceAndDestinationChain(sourceChainId, destinationChainId);
-    this.validateSourceAndDestinationDenom(sourceDenom, destinationDenom);
+    validateSourceAndDestinationChain(sourceChainId, destinationChainId);
+    validateSourceAndDestinationDenom(sourceDenom, destinationDenom);
 
     sourceDenom = encodeURIComponent(sourceDenom);
     destinationDenom = encodeURIComponent(destinationDenom);
@@ -44,8 +47,8 @@ export class IbcSwapProcessor {
     pfmEnabled,
     slippage = 0.01,
   }: GetMsgSwapDto): Promise<SwapMsgDto> {
-    this.validateSourceAndDestinationChain(sourceChainId, destinationChainId);
-    this.validateSourceAndDestinationDenom(sourceDenom, destinationDenom);
+    validateSourceAndDestinationChain(sourceChainId, destinationChainId);
+    validateSourceAndDestinationDenom(sourceDenom, destinationDenom);
 
     sourceDenom = encodeURIComponent(sourceDenom);
     destinationDenom = encodeURIComponent(destinationDenom);
@@ -76,8 +79,8 @@ export class IbcSwapProcessor {
     slippage = 0.01,
     pfmEnabled,
   }: GetSwapRouteMsgCombinedDto): Promise<RouteMsgCombinedSwapDto> {
-    this.validateSourceAndDestinationChain(sourceChainId, destinationChainId);
-    this.validateSourceAndDestinationDenom(sourceDenom, destinationDenom);
+    validateSourceAndDestinationChain(sourceChainId, destinationChainId);
+    validateSourceAndDestinationDenom(sourceDenom, destinationDenom);
 
     sourceDenom = encodeURIComponent(sourceDenom);
     destinationDenom = encodeURIComponent(destinationDenom);
@@ -96,27 +99,5 @@ export class IbcSwapProcessor {
 
     this.api.updateTimeout(300000);
     return await this.api.makeGetRequest<RouteMsgCombinedSwapDto>(url);
-  }
-
-  private validateSourceAndDestinationChain(
-    sourceChainId: string,
-    destinationChainId: string,
-  ): void {
-    if (sourceChainId === destinationChainId) {
-      throw new TFMError({
-        message: "Source and destination chain cannot be the same",
-      });
-    }
-  }
-
-  private validateSourceAndDestinationDenom(
-    sourceDenom: string,
-    destinationDenom: string,
-  ): void {
-    if (sourceDenom === destinationDenom) {
-      throw new TFMError({
-        message: "Source and destination denom cannot be the same",
-      });
-    }
   }
 }

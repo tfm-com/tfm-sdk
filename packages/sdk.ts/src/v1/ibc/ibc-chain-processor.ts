@@ -8,7 +8,7 @@ import { IbcTokenDto } from "./dto/token/token.dto";
 import { TokenTransferPairDto } from "./dto/token/token-transfer-pair.dto";
 import { TokenTransferableDto } from "./dto/token/token-transferable.dto";
 import { Api } from "../../api";
-import { TFMError } from "../../errors";
+import { validateSourceAndDestinationChain } from "./validation";
 
 export class IbcChainProcessor {
   constructor(private readonly api: Api) {}
@@ -79,7 +79,7 @@ export class IbcChainProcessor {
     sourceChainId: string,
     destinationChainId: string,
   ): Promise<TokenTransferPairDto[]> {
-    this.validateSourceAndDestinationChain(sourceChainId, destinationChainId);
+    validateSourceAndDestinationChain(sourceChainId, destinationChainId);
 
     const url = `/ibc/chain/${sourceChainId}/transferable-tokens/${destinationChainId}`;
     return await this.api.makeGetRequest<TokenTransferPairDto[]>(url);
@@ -90,20 +90,9 @@ export class IbcChainProcessor {
     destinationChainId: string,
     denom: string,
   ): Promise<TokenTransferableDto> {
-    this.validateSourceAndDestinationChain(sourceChainId, destinationChainId);
+    validateSourceAndDestinationChain(sourceChainId, destinationChainId);
     denom = encodeURIComponent(denom);
     const url = `/ibc/chain/${sourceChainId}/transferable-token/${destinationChainId}/${denom}`;
     return await this.api.makeGetRequest<TokenTransferableDto>(url);
-  }
-
-  private validateSourceAndDestinationChain(
-    sourceChainId: string,
-    destinationChainId: string,
-  ): void {
-    if (sourceChainId === destinationChainId) {
-      throw new TFMError({
-        message: "Source and destination chain cannot be the same",
-      });
-    }
   }
 }
