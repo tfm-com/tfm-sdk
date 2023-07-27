@@ -69,7 +69,7 @@ export class IbcTransferProcessor {
 
     let url = `/ibc/transfer/route-msg-combined/${sourceChainId}/${destinationChainId}/${sourceDenom}/${destinationDenom}/${amount}`;
     if (pfmEnabled !== undefined) {
-      url += `&pfmEnabled=${pfmEnabled}`;
+      url += `?pfmEnabled=${pfmEnabled}`;
     }
 
     this.api.updateTimeout(300000);
