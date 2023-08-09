@@ -10,8 +10,5 @@
     "examples:ibc-chain": "node dist/ibc.js",
     "examples:ibc-transfer": "node dist/ibc-transfer.js",
     "examples:ibc-swap": "node dist/ibc-swap.js"
-  },
-  "dependencies": {
-    "@0xtfm/sdk": "^0.2.1"
   }
 }
