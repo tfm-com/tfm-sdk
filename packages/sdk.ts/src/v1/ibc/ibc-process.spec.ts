@@ -26,7 +26,7 @@ describe("IbcProcessor", () => {
   });
 
   it("should have instances of IbcChainProcessor, IbcTransferProcessor, and IbcSwapProcessor", () => {
-    expect(ibcProcessor.chain).toBeInstanceOf(IbcChainProcessor);
+    expect(ibcProcessor.chains).toBeInstanceOf(IbcChainProcessor);
     expect(ibcProcessor.transfer).toBeInstanceOf(IbcTransferProcessor);
     expect(ibcProcessor.swap).toBeInstanceOf(IbcSwapProcessor);
   });

@@ -8,20 +8,20 @@ async function exec() {
 
   console.log("-----------------------------------");
   // get chains on ibc
-  const chains = await sdk.ibc.chain.getAllChains();
+  const chains = await sdk.ibc.chains.getAllChains();
   console.log("List of chains(sample):", chains.slice(0, 5));
   console.log("Total number of chains:", chains.length);
 
   console.log("-----------------------------------");
 
   // get tokens for a chain
-  const terra2Tokens = await sdk.ibc.chain.getAllChainTokens("phoenix-1");
+  const terra2Tokens = await sdk.ibc.chains.getAllChainTokens("phoenix-1");
   console.log("Token on terra(sample):", terra2Tokens.slice(0, 5));
   console.log("Total number of tokens on terra:", terra2Tokens.length);
 
   console.log("-----------------------------------");
   // get token info
-  const tokenInfo = await sdk.ibc.chain.getChainToken({
+  const tokenInfo = await sdk.ibc.chains.getChainToken({
     chainId: "phoenix-1",
     denom: "uluna",
   });
@@ -29,7 +29,7 @@ async function exec() {
 
   console.log("-----------------------------------");
   // Get reachable chains from chain X for example Terra
-  const reachableChains = await sdk.ibc.chain.getAllReachableChains(
+  const reachableChains = await sdk.ibc.chains.getAllReachableChains(
     "phoenix-1"
   );
   console.log(
@@ -39,12 +39,12 @@ async function exec() {
 
   console.log("-----------------------------------");
   // Check if chain X is reachable from chain Y
-  const isReachable = await sdk.ibc.chain.chainIsReachable("phoenix-1", "osmosis-1");
+  const isReachable = await sdk.ibc.chains.chainIsReachable("phoenix-1", "osmosis-1");
   console.log("Is osmosis reachable from terra:", isReachable);
 
   console.log("-----------------------------------");
   // Get transferable tokens between two chains
-  const transferableTokens = await sdk.ibc.chain.getAllTransferableTokens(
+  const transferableTokens = await sdk.ibc.chains.getAllTransferableTokens(
     "phoenix-1",
     "osmosis-1"
   );
@@ -55,7 +55,7 @@ async function exec() {
 
   console.log("-----------------------------------");
   // Check if token X is transferable from chain X to chain Y
-  const tokenIsTransferable = await sdk.ibc.chain.tokenIsTransferable(
+  const tokenIsTransferable = await sdk.ibc.chains.tokenIsTransferable(
     "phoenix-1",
     "osmosis-1",
     "uluna"

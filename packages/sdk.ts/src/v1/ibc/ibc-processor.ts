@@ -5,12 +5,12 @@ import { IbcSwapProcessor } from "./ibc-swap-processor";
 import { IbcTransferProcessor } from "./ibc-transfer-processor";
 
 export class IbcProcessor {
-  chain: IbcChainProcessor;
+  chains: IbcChainProcessor;
   transfer: IbcTransferProcessor;
   swap: IbcSwapProcessor;
 
   constructor(private readonly api: Api) {
-    this.chain = new IbcChainProcessor(this.api);
+    this.chains = new IbcChainProcessor(this.api);
     this.transfer = new IbcTransferProcessor(this.api);
     this.swap = new IbcSwapProcessor(this.api);
   }
