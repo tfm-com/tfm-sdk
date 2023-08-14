@@ -1,20 +1,29 @@
-export interface MsgTokenDto {
+export interface TransferMsgTokenDto {
   amount: string;
   denom: string;
 }
 
-export interface MsgValueDto {
+export interface TransferMsgForwardDto {
+  receiver: string;
+  port: string;
+  channel: string;
+}
+export interface TransferMsgMemoDto {
+  forward: TransferMsgForwardDto;
+}
+export interface TransferMsgMsgValue {
   receiver: string;
   sender: string;
-  sourceChannel: string;
-  sourcePort: string;
+  source_channel: string;
+  source_port: string;
   timeoutTimestamp: string;
-  token: MsgTokenDto;
+  token: TransferMsgTokenDto;
+  memo: TransferMsgMemoDto;
 }
-
-export interface MsgInfoDto {
+export interface TransferMsgMsg {
   typeUrl: string;
-  value: MsgValueDto;
+
+  value: TransferMsgMsgValue;
 }
 
 export interface TransferMsgDto {
@@ -27,5 +36,6 @@ export interface TransferMsgDto {
   destinationChannel: string;
   sourcePort: string;
   destinationPort: string;
-  msg: MsgInfoDto[];
+  msg: TransferMsgMsg[];
+  fallback_msg?: TransferMsgDto[];
 }
