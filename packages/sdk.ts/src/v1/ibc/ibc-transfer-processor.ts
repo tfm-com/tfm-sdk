@@ -40,7 +40,7 @@ export class IbcTransferProcessor {
     sourceDenom,
     destinationDenom,
     amount,
-  }: GetTransferMsgDto): Promise<TransferMsgDto> {
+  }: GetTransferMsgDto): Promise<TransferMsgDto[]> {
     validateSourceAndDestinationChain(sourceChainId, destinationChainId);
     validateSourceAndDestinationDenom(sourceDenom, destinationDenom);
     validateOneOfDenomsShouldBeIBc(sourceDenom, destinationDenom);
@@ -49,7 +49,7 @@ export class IbcTransferProcessor {
     destinationDenom = encodeURIComponent(destinationDenom);
     const url = `/ibc/transfer/msg/${sourceChainId}/${destinationChainId}/${sourceDenom}/${destinationDenom}/${amount}`;
     this.api.updateTimeout(60000);
-    return await this.api.makeGetRequest<TransferMsgDto>(url);
+    return await this.api.makeGetRequest<TransferMsgDto[]>(url);
   }
 
   async getTransferRouteMsgCombined({

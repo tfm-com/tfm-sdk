@@ -1,6 +1,6 @@
 import { Api } from "../../api";
 import { TFMError } from "../../errors";
-import { Price } from "../../types";
+import { PriceDto } from "./dto/price.dto";
 import { PriceProcessor } from "./price-processor";
 
 jest.mock("../../api");
@@ -21,7 +21,7 @@ describe("PriceProcessor", () => {
   test("should fetch token price for a given chain and denomination", async () => {
     const expectedDenom = "uluna";
     const expectedChainId = "chain1";
-    const expectedPriceData: Price = {
+    const expectedPriceData: PriceDto = {
       price: 1000,
       asset: {
         symbol: "abc",

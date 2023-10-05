@@ -7,7 +7,7 @@
     "examples:basic": "node dist/basic.js",
     "examples:price": "node dist/price.js",
     "examples:dex": "node dist/dex.js",
-    "examples:ibc-chain": "node dist/ibc.js",
+    "examples:ibc-chain": "node dist/ibc-chain.js",
     "examples:ibc-transfer": "node dist/ibc-transfer.js",
     "examples:ibc-swap": "node dist/ibc-swap.js"
   }

@@ -2,6 +2,7 @@
 import { Api } from "../../api";
 import { RouteMsgCombinedSwapDto } from "./dto/route-msg-combined/route-msg-combined-swap.dto";
 import { SwapMsgDto } from "./dto/msg/msg-swap.dto";
+import { TransferMsgDto } from "./dto/msg/msg-tranfer.dto";
 import { GetSwapRouteDto } from "./dto/route/get-route.dto";
 import { SwapRouteDto } from "./dto/route/route.dto";
 import { GetMsgSwapDto } from "./dto/msg/get-msg.dto";
@@ -46,7 +47,7 @@ export class IbcSwapProcessor {
     swapMode = SwapMode.Turbo,
     pfmEnabled,
     slippage = 0.01,
-  }: GetMsgSwapDto): Promise<SwapMsgDto> {
+  }: GetMsgSwapDto): Promise<(SwapMsgDto | TransferMsgDto)[]> {
     validateSourceAndDestinationChain(sourceChainId, destinationChainId);
     validateSourceAndDestinationDenom(sourceDenom, destinationDenom);
 
@@ -66,7 +67,7 @@ export class IbcSwapProcessor {
     }
 
     this.api.updateTimeout(60000);
-    return await this.api.makeGetRequest<SwapMsgDto>(url);
+    return await this.api.makeGetRequest<(SwapMsgDto | TransferMsgDto)[]>(url);
   }
 
   async getSwapRouteMsgCombined({

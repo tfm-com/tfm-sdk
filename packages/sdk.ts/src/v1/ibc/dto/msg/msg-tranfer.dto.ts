@@ -1,15 +1,21 @@
+import { WasmDto } from "./msg-swap.dto";
+
 export interface TransferMsgTokenDto {
   amount: string;
   denom: string;
 }
-
+export interface TransferMsgForwardNextDto {
+  wasm?: WasmDto;
+}
 export interface TransferMsgForwardDto {
   receiver: string;
   port: string;
   channel: string;
+  next?: TransferMsgForwardNextDto;
 }
 export interface TransferMsgMemoDto {
-  forward: TransferMsgForwardDto;
+  forward?: TransferMsgForwardDto;
+  wasm?: WasmDto;
 }
 export interface TransferMsgMsgValue {
   receiver: string;

@@ -1,10 +1,20 @@
+export enum ChainNetworkType {
+  MAINNET = "MAINNET",
+  TESTNET = "TESTNET",
+}
+
+export enum ChainStatus {
+  ENABLED = "ENABLED",
+  DISABLED = "DISABLED",
+}
+
 export interface ChainDto {
   id: number;
   chainName: string;
   prettyName: string;
   chainId: string;
-  networkType: string;
-  status: string;
+  networkType: ChainNetworkType;
+  status: ChainStatus;
   githubUrl: string;
   isTrading: boolean;
   imageUrl: string;

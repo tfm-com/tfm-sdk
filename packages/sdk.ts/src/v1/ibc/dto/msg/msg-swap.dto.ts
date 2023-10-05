@@ -1,3 +1,8 @@
+export enum SwapType {
+  swap = "swap",
+  ibc_transfer = "ibc_transfer",
+}
+
 export interface IbcSwapNativeTokenInfo {
   denom: string;
 }
@@ -23,12 +28,28 @@ export interface IbcSwapMsgOperation {
   operations: IbcSwapMsgOperationDetail[];
 }
 
+export interface WasmDto {
+  contract: string;
+
+  msg: IbcSwapExecuteMsg;
+}
+
+export interface SwapIbcHook {
+  source_port: string;
+  source_channel: string;
+  receiver: string;
+  recovery_addr: string;
+  port_contract: string;
+  memo?: WasmDto;
+}
+
 export interface IbcSwapExecuteSwapOperations {
   minimum_receive: string;
   offer_amount: string;
   max_spread: string;
   to: string;
   routes: IbcSwapMsgOperation[];
+  swap_ibc_hook?: SwapIbcHook;
 }
 
 export interface IbcSwapExecuteMsg {
@@ -47,7 +68,14 @@ export interface SwapMsgValue {
   sender: string;
 }
 
-export interface SwapMsgDto {
-  value: SwapMsgValue;
+export interface SwapMsgMsg {
   type: string;
+  value: SwapMsgValue;
+}
+
+export interface SwapMsgDto {
+  msg: SwapMsgMsg[];
+  type: SwapType.swap;
+  chainID: string;
+  chainName: string;
 }

@@ -1,5 +1,5 @@
 import { Api } from "../../api";
-import { Price } from "../../types";
+import { PriceDto } from "./dto/price.dto";
 
 export class PriceProcessor {
   /**
@@ -22,11 +22,11 @@ export class PriceProcessor {
     denom: string,
     chainId: string,
     timestamp?: number,
-  ): Promise<Price> {
+  ): Promise<PriceDto> {
     let url = `/price/${chainId}/${encodeURIComponent(denom)}`;
     if (timestamp) {
       url = `${url}?timestamp=${timestamp}`;
     }
-    return await this.api.makeGetRequest<Price>(url);
+    return await this.api.makeGetRequest<PriceDto>(url);
   }
 }

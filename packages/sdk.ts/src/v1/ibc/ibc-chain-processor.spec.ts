@@ -1,7 +1,14 @@
 import { Api } from "../../api";
 import { IbcChainProcessor } from "./ibc-chain-processor";
 import { TFMError } from "../../errors";
-import { ChainDto, IbcTokenDto, NetworkType, TokenType } from "./types";
+import {
+  ChainDto,
+  IbcTokenDto,
+  NetworkType,
+  TokenType,
+  ChainNetworkType,
+  ChainStatus,
+} from "./types";
 
 jest.mock("../../api");
 
@@ -13,8 +20,8 @@ describe("IbcChainProcessor", () => {
     chainName: "Chain 1",
     prettyName: "Chain 1",
     chainId: "chain1",
-    networkType: "mainnet",
-    status: "active",
+    networkType: ChainNetworkType.MAINNET,
+    status: ChainStatus.ENABLED,
     githubUrl: "",
     isTrading: true,
     imageUrl: "",
@@ -27,8 +34,8 @@ describe("IbcChainProcessor", () => {
     chainName: "Chain 2",
     prettyName: "Chain 2",
     chainId: "chain2",
-    networkType: "mainnet",
-    status: "active",
+    networkType: ChainNetworkType.MAINNET,
+    status: ChainStatus.ENABLED,
     githubUrl: "",
     isTrading: true,
     imageUrl: "",
