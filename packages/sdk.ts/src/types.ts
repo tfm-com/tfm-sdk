@@ -1,4 +1,5 @@
 import { ApiErrorResponse, ApiOkResponse, ApiResponse } from "apisauce";
+export * from "./errors";
 
 interface TFMInstance {
   init(): Promise<void>;
