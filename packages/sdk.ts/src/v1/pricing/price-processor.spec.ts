@@ -27,6 +27,7 @@ describe("PriceProcessor", () => {
         symbol: "abc",
         name: "ABC",
         base: "abc",
+        decimals: 6,
       },
       requestDenom: "abc",
     };
